@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:sporuygulamasi/salonhakkinda.dart';
 
 class Anasayfa extends StatelessWidget {
@@ -71,7 +73,11 @@ class Anasayfa extends StatelessWidget {
         ElevatedButton.icon(
             onPressed: () {},
             icon: Icon(Icons.date_range_rounded),
-            label: Text("Deneme")),
+            label: Text("Deneme"),
+            style: ElevatedButton.styleFrom(
+                textStyle:
+                    TextStyle(fontFamily: ChannelBuffers.kControlChannelName))),
+        SizedBox()
       ]),
     );
   }
