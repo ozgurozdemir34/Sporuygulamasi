@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:sporuygulamasi/anasayfa.dart';
 
 void main() {
+  Hive.initFlutter();
   runApp(const MyApp());
 }
 

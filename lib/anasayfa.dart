@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+
 import 'package:flutter/widgets.dart';
+import 'package:sporuygulamasi/abonelik.dart';
 import 'package:sporuygulamasi/salonhakkinda.dart';
+import 'package:sporuygulamasi/suicme.dart';
 
 class Anasayfa extends StatelessWidget {
   const Anasayfa({super.key});
@@ -12,10 +14,6 @@ class Anasayfa extends StatelessWidget {
       drawer: Drawer(
         child: ListView(
           children: [
-            ListTile(
-              onTap: () {},
-              title: (Text("Ana Sayfa")),
-            ),
             ListTile(
               onTap: () {
                 Navigator.push(context,
@@ -56,7 +54,7 @@ class Anasayfa extends StatelessWidget {
         type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
-              icon: Icon(Icons.food_bank), label: "Diyet Programı"),
+              icon: Icon(Icons.dining), label: "Diyet Programı"),
           BottomNavigationBarItem(
               icon: Icon(Icons.fitness_center_sharp), label: "Antreman"),
           BottomNavigationBarItem(
@@ -65,19 +63,50 @@ class Anasayfa extends StatelessWidget {
               icon: Icon(Icons.monitor_weight), label: "Kilo Ölçümü"),
         ],
       ),
-      body: Column(children: [
+      body: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
         SizedBox(
-          width: 200,
-          height: 200,
+          width: 400,
+          height: 50,
+        ),
+        ElevatedButton.icon(
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => Abonelik()));
+          },
+          icon: Icon(Icons.date_range_rounded),
+          label: Text("Abonelik"),
+        ),
+        SizedBox(
+          height: 50,
+        ),
+        ElevatedButton.icon(
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Suicme()));
+            },
+            icon: Icon(Icons.water_drop_rounded),
+            label: Text("Su İçme")),
+        SizedBox(
+          height: 50,
+        ),
+        ElevatedButton.icon(
+            icon: Icon(Icons.leaderboard),
+            onPressed: () {},
+            label: Text("Rekorlar")),
+        SizedBox(
+          height: 50,
         ),
         ElevatedButton.icon(
             onPressed: () {},
-            icon: Icon(Icons.date_range_rounded),
-            label: Text("Deneme"),
-            style: ElevatedButton.styleFrom(
-                textStyle:
-                    TextStyle(fontFamily: ChannelBuffers.kControlChannelName))),
-        SizedBox()
+            icon: Icon(Icons.access_time),
+            label: Text("Randevular")),
+        SizedBox(
+          height: 50,
+        ),
+        ElevatedButton.icon(
+            onPressed: () {},
+            icon: Icon(Icons.group),
+            label: Text("Grup Dersleri"))
       ]),
     );
   }
