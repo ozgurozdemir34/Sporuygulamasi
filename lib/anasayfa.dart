@@ -42,7 +42,7 @@ class Anasayfa extends StatelessWidget {
         onPressed: () {},
         child: Icon(Icons.qr_code),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
       appBar: AppBar(
         centerTitle: true,
         title: Text(
