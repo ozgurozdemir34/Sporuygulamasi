@@ -5,7 +5,7 @@ import 'package:hive/hive.dart';
 
 void main() async {
   await Hive.initFlutter();
-  await Hive.openBox("Kilo");
+  await Hive.openBox("Boy");
   runApp(MyApp());
 }
 
@@ -18,19 +18,19 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.lightBlue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Kilo(),
+      home: Boy(),
     );
   }
 }
 
-class Kilo extends StatefulWidget {
-  const Kilo({Key? key}) : super(key: key);
+class Boy extends StatefulWidget {
+  const Boy({Key? key}) : super(key: key);
 
   @override
-  _KiloState createState() => _KiloState();
+  _BoyState createState() => _BoyState();
 }
 
-class _KiloState extends State<Kilo> {
+class _BoyState extends State<Boy> {
   TextEditingController _textFieldController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
@@ -45,11 +45,11 @@ class _KiloState extends State<Kilo> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           if (_formKey.currentState!.validate()) {
-            int sayi = Hive.box("Kilo").length + 1;
+            int sayi = Hive.box("Boy").length + 1;
             setState(() {
               if (_textFieldController.text != "") {
-                Hive.box("Kilo")
-                    .put("Kilo$sayi", int.parse(_textFieldController.text));
+                Hive.box("Boy")
+                    .put("Boy$sayi", int.parse(_textFieldController.text));
                 _textFieldController.clear();
               }
             });
@@ -59,7 +59,7 @@ class _KiloState extends State<Kilo> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       appBar: AppBar(
-        title: Text("KİLO TAKİBİ"),
+        title: Text("BOY TAKİBİ"),
         centerTitle: true,
         backgroundColor: Colors.lightBlue,
       ),
@@ -88,7 +88,7 @@ class _KiloState extends State<Kilo> {
                   return null;
                 },
                 decoration: InputDecoration(
-                  hintText: 'Kilonuzu giriniz',
+                  hintText: 'Boyunuzu giriniz',
                   border: OutlineInputBorder(),
                 ),
               ),
@@ -107,10 +107,10 @@ class _KiloState extends State<Kilo> {
         return Center(child: CircularProgressIndicator());
       } else {
         return ListView.builder(
-          itemCount: Hive.box("Kilo").length,
+          itemCount: Hive.box("Boy").length,
           itemBuilder: (context, index) {
-            var key = Hive.box("Kilo").keyAt(index);
-            var value = Hive.box("Kilo").get(key);
+            var key = Hive.box("Boy").keyAt(index);
+            var value = Hive.box("Boy").get(key);
             return ListTile(
               title: Text('$key: $value'),
             );
@@ -122,10 +122,10 @@ class _KiloState extends State<Kilo> {
 }
 
 Future<void> _checkAndOpenBox() async {
-  if (!Hive.isBoxOpen("Kilo")) {
-    await Hive.openBox("Kilo");
+  if (!Hive.isBoxOpen("Boy")) {
+    await Hive.openBox("Boy");
   }
- 
+  
 }
 
 }

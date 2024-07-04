@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter/widgets.dart';
 import 'package:sporuygulamasi/abonelik.dart';
+import 'package:sporuygulamasi/boy.dart';
 import 'package:sporuygulamasi/kilo.dart';
 import 'package:sporuygulamasi/salonhakkinda.dart';
 import 'package:sporuygulamasi/suicme.dart';
@@ -70,6 +71,8 @@ class Anasayfa extends StatelessWidget {
             Navigator.push(context, MaterialPageRoute(builder: (context)=>Kilo()));
               
               break;
+            case 2:
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>Boy()));
             default:
           }
         },
