@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter/widgets.dart';
 import 'package:sporuygulamasi/abonelik.dart';
+import 'package:sporuygulamasi/kilo.dart';
 import 'package:sporuygulamasi/salonhakkinda.dart';
 import 'package:sporuygulamasi/suicme.dart';
 
@@ -52,6 +53,7 @@ class Anasayfa extends StatelessWidget {
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
+       
         items: [
           BottomNavigationBarItem(
               icon: Icon(Icons.dining), label: "Diyet Programı"),
@@ -62,6 +64,15 @@ class Anasayfa extends StatelessWidget {
           BottomNavigationBarItem(
               icon: Icon(Icons.monitor_weight), label: "Kilo Ölçümü"),
         ],
+        onTap: (int index) {
+          switch (index) {
+            case 3:
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>Kilo()));
+              
+              break;
+            default:
+          }
+        },
       ),
       body: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
         SizedBox(
