@@ -47,9 +47,12 @@ class _BoyState extends State<Boy> {
           if (_formKey.currentState!.validate()) {
             int sayi = Hive.box("Boy").length + 1;
             setState(() {
+              var gun = DateTime.now().day;
+              var ay = DateTime.now().month;
+              var yil = DateTime.now().year;
               if (_textFieldController.text != "") {
-                Hive.box("Boy")
-                    .put("Boy$sayi", int.parse(_textFieldController.text));
+                Hive.box("Boy").put("$gun.$ay.$yil tarihli $sayi. Ölçüm",
+                    int.parse(_textFieldController.text));
                 _textFieldController.clear();
               }
             });
@@ -100,32 +103,30 @@ class _BoyState extends State<Boy> {
   }
 
   Widget _buildListOrLoading() {
-  return FutureBuilder(
-    future: _checkAndOpenBox(),
-    builder: (context, snapshot) {
-      if (snapshot.connectionState == ConnectionState.waiting) {
-        return Center(child: CircularProgressIndicator());
-      } else {
-        return ListView.builder(
-          itemCount: Hive.box("Boy").length,
-          itemBuilder: (context, index) {
-            var key = Hive.box("Boy").keyAt(index);
-            var value = Hive.box("Boy").get(key);
-            return ListTile(
-              title: Text('$key: $value'),
-            );
-          },
-        );
-      }
-    },
-  );
-}
-
-Future<void> _checkAndOpenBox() async {
-  if (!Hive.isBoxOpen("Boy")) {
-    await Hive.openBox("Boy");
+    return FutureBuilder(
+      future: _checkAndOpenBox(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Center(child: CircularProgressIndicator());
+        } else {
+          return ListView.builder(
+            itemCount: Hive.box("Boy").length,
+            itemBuilder: (context, index) {
+              var key = Hive.box("Boy").keyAt(index);
+              var value = Hive.box("Boy").get(key);
+              return ListTile(
+                title: Text('$key: $value'),
+              );
+            },
+          );
+        }
+      },
+    );
   }
-  
-}
 
+  Future<void> _checkAndOpenBox() async {
+    if (!Hive.isBoxOpen("Boy")) {
+      await Hive.openBox("Boy");
+    }
+  }
 }
