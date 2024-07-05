@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:sporuygulamasi/abonelik.dart';
 import 'package:sporuygulamasi/boy.dart';
 import 'package:sporuygulamasi/kilo.dart';
+import 'package:sporuygulamasi/olcumler.dart';
 import 'package:sporuygulamasi/salonhakkinda.dart';
 import 'package:sporuygulamasi/suicme.dart';
 
@@ -34,6 +35,13 @@ class Anasayfa extends StatelessWidget {
             ListTile(
               onTap: () {},
               title: Text("Bildirimler"),
+            ),
+            ListTile(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Olcumler()));
+              },
+              title: Text("Ölçümler"),
             )
           ],
         ),
@@ -44,7 +52,8 @@ class Anasayfa extends StatelessWidget {
         onPressed: () {},
         child: Icon(Icons.qr_code),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.miniCenterDocked,
       appBar: AppBar(
         centerTitle: true,
         title: Text(
@@ -53,8 +62,10 @@ class Anasayfa extends StatelessWidget {
         backgroundColor: Colors.lightBlue,
       ),
       bottomNavigationBar: BottomNavigationBar(
+        selectedFontSize: 12,
+        selectedLabelStyle: TextStyle(color: Colors.grey.shade500),
+        selectedIconTheme: IconThemeData(color: Colors.grey.shade500),
         type: BottomNavigationBarType.fixed,
-       
         items: [
           BottomNavigationBarItem(
               icon: Icon(Icons.dining), label: "Diyet Programı"),
@@ -68,11 +79,13 @@ class Anasayfa extends StatelessWidget {
         onTap: (int index) {
           switch (index) {
             case 3:
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>Kilo()));
-              
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Kilo()));
+
               break;
             case 2:
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>Boy()));
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Boy()));
             default:
           }
         },
