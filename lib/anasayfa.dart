@@ -7,6 +7,7 @@ import 'package:sporuygulamasi/kilo.dart';
 import 'package:sporuygulamasi/olcumler.dart';
 import 'package:sporuygulamasi/salonhakkinda.dart';
 import 'package:sporuygulamasi/suicme.dart';
+import 'package:sporuygulamasi/yagkiloorani.dart';
 
 class Anasayfa extends StatelessWidget {
   const Anasayfa({super.key});
@@ -42,6 +43,12 @@ class Anasayfa extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => Olcumler()));
               },
               title: Text("Ölçümler"),
+              
+            ),
+            ListTile(
+              onTap: (){Navigator.push(context,MaterialPageRoute(builder: (context)=>Yagkiloorani()));
+              },
+              title: Text("Yağ Kilo Oranı"),
             )
           ],
         ),
