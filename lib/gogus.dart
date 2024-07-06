@@ -64,7 +64,7 @@ class _GogusState extends State<Gogus> {
       appBar: AppBar(
         title: Text("GOGUS"),
         centerTitle: true,
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Color.fromARGB(255, 231, 31, 31),
       ),
       body: Column(
         children: [

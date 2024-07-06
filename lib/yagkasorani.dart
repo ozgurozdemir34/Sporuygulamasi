@@ -5,7 +5,7 @@ import 'package:hive/hive.dart';
 
 void main() async {
   await Hive.initFlutter();
-  await Hive.openBox("Omuz");
+  await Hive.openBox("yagkasorani");
   runApp(MyApp());
 }
 
@@ -13,24 +13,24 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'OMUZ',
+      title: 'Kilo Takibi',
       theme: ThemeData(
         primarySwatch: Colors.lightBlue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Omuz(),
+      home: Yagkasorani(),
     );
   }
 }
 
-class Omuz extends StatefulWidget {
-  const Omuz({Key? key}) : super(key: key);
+class Yagkasorani extends StatefulWidget {
+  const Yagkasorani({Key? key}) : super(key: key);
 
   @override
-  _OmuzState createState() => _OmuzState();
+  _YagkasoraniState createState() => _YagkasoraniState();
 }
 
-class _OmuzState extends State<Omuz> {
+class _YagkasoraniState extends State<Yagkasorani> {
   TextEditingController _textFieldController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
@@ -45,14 +45,18 @@ class _OmuzState extends State<Omuz> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           if (_formKey.currentState!.validate()) {
-            int sayi = Hive.box("Omuz").length + 1;
+            int sayi = (Hive.box("yagkasorani").length ~/ 2) + 1;
             setState(() {
               var gun = DateTime.now().day;
               var ay = DateTime.now().month;
               var yil = DateTime.now().year;
               if (_textFieldController.text != "") {
-                Hive.box("Omuz").put("$gun.$ay.$yil tarihli $sayi. Ölçüm",
+                Hive.box("yagkasorani").put(
+                    "$gun.$ay.$yil tarihli $sayi. Ölçümün Yağ Oranı ",
                     int.parse(_textFieldController.text));
+                Hive.box("yagkasorani").put(
+                    "$gun.$ay.$yil tarihli $sayi. Ölçümün Kas Oranı ",
+                    100 - int.parse(_textFieldController.text));
                 _textFieldController.clear();
               }
             });
@@ -62,7 +66,7 @@ class _OmuzState extends State<Omuz> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       appBar: AppBar(
-        title: Text("OMUZ"),
+        title: Text("YAĞ KAS ORANI TAKİBİ"),
         centerTitle: true,
         backgroundColor: Color.fromARGB(255, 231, 31, 31),
       ),
@@ -91,7 +95,7 @@ class _OmuzState extends State<Omuz> {
                   return null;
                 },
                 decoration: InputDecoration(
-                  hintText: 'Boyutunuzu giriniz',
+                  hintText: 'Yağ oranınızı giriniz',
                   border: OutlineInputBorder(),
                 ),
               ),
@@ -110,10 +114,10 @@ class _OmuzState extends State<Omuz> {
           return Center(child: CircularProgressIndicator());
         } else {
           return ListView.builder(
-            itemCount: Hive.box("Omuz").length,
+            itemCount: Hive.box("yagkasorani").length,
             itemBuilder: (context, index) {
-              var key = Hive.box("Omuz").keyAt(index);
-              var value = Hive.box("Omuz").get(key);
+              var key = Hive.box("yagkasorani").keyAt(index);
+              var value = Hive.box("yagkasorani").get(key);
               return ListTile(
                 title: Text('$key: $value'),
               );
@@ -125,8 +129,8 @@ class _OmuzState extends State<Omuz> {
   }
 
   Future<void> _checkAndOpenBox() async {
-    if (!Hive.isBoxOpen("Omuz")) {
-      await Hive.openBox("Omuz");
+    if (!Hive.isBoxOpen("yagkasorani")) {
+      await Hive.openBox("yagkasorani");
     }
   }
 }

@@ -56,7 +56,7 @@ class _SuicmeState extends State<Suicme> {
                 icon: Icon(Icons.keyboard_backspace));
           },
         ),
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Color.fromARGB(255, 231, 31, 31),
         title: Text("SU TAKİBİ"),
         centerTitle: true,
       ),

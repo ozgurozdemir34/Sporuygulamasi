@@ -9,7 +9,7 @@ class Abonelik extends StatelessWidget {
       appBar: AppBar(
         title: Text("ABONELİK"),
         centerTitle: true,
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Color.fromARGB(255, 231, 31, 31),
       ),
     );
   }

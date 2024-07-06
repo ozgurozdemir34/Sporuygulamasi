@@ -26,39 +26,57 @@ class Olcumler extends StatelessWidget {
             width: 400,
             height: 50,
           ),
-          ElevatedButton(onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>Bacak()));
-          }, child: Text("Bacak")),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Bacak()));
+              },
+              child: Text("Bacak")),
           SizedBox(
             height: 50,
           ),
-          ElevatedButton(onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>Bel()));
-          }, child: Text("  Bel  ")),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Bel()));
+              },
+              child: Text("  Bel  ")),
           SizedBox(
             height: 50,
           ),
-          ElevatedButton(onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>Gogus()));
-          }, child: Text("Gögüs")),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Gogus()));
+              },
+              child: Text("Gögüs")),
           SizedBox(
             height: 50,
           ),
-          ElevatedButton(onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>Kalca()));
-          }, child: Text(" Kalça ")),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Kalca()));
+              },
+              child: Text(" Kalça ")),
           SizedBox(
             height: 50,
           ),
-          ElevatedButton(onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>Kol()));
-          }, child: Text("  Kol  ")),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Kol()));
+              },
+              child: Text("  Kol  ")),
           SizedBox(
             height: 50,
           ),
-          ElevatedButton(onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>Omuz()));
-          }, child: Text(" Omuz ")),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Omuz()));
+              },
+              child: Text(" Omuz ")),
         ],
       ),
     );

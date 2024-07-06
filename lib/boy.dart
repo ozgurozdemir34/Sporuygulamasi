@@ -64,7 +64,7 @@ class _BoyState extends State<Boy> {
       appBar: AppBar(
         title: Text("BOY TAKİBİ"),
         centerTitle: true,
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Color.fromARGB(255, 231, 31, 31),
       ),
       body: Column(
         children: [

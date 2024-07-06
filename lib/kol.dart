@@ -64,7 +64,7 @@ class _KolState extends State<Kol> {
       appBar: AppBar(
         title: Text("KOL"),
         centerTitle: true,
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Color.fromARGB(255, 231, 31, 31),
       ),
       body: Column(
         children: [

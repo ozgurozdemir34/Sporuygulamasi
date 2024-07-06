@@ -11,7 +11,7 @@ class Salonhakkinda extends StatelessWidget {
           "Salon Hakkında",
           textAlign: TextAlign.center,
         ),
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Color.fromARGB(255, 231, 31, 31),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,

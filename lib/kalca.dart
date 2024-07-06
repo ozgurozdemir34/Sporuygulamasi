@@ -64,7 +64,7 @@ class _KalcaState extends State<Kalca> {
       appBar: AppBar(
         title: Text("KALCA"),
         centerTitle: true,
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Color.fromARGB(255, 231, 31, 31),
       ),
       body: Column(
         children: [

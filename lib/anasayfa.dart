@@ -7,7 +7,7 @@ import 'package:sporuygulamasi/kilo.dart';
 import 'package:sporuygulamasi/olcumler.dart';
 import 'package:sporuygulamasi/salonhakkinda.dart';
 import 'package:sporuygulamasi/suicme.dart';
-import 'package:sporuygulamasi/yagkiloorani.dart';
+import 'package:sporuygulamasi/yagkasorani.dart';
 
 class Anasayfa extends StatelessWidget {
   const Anasayfa({super.key});
@@ -43,16 +43,17 @@ class Anasayfa extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => Olcumler()));
               },
               title: Text("Ölçümler"),
-              
             ),
             ListTile(
-              onTap: (){Navigator.push(context,MaterialPageRoute(builder: (context)=>Yagkiloorani()));
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Yagkasorani()));
               },
               title: Text("Yağ Kilo Oranı"),
             )
           ],
         ),
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Color.fromARGB(255, 231, 31, 31),
       ),
       backgroundColor: Colors.white,
       floatingActionButton: FloatingActionButton(
@@ -66,7 +67,7 @@ class Anasayfa extends StatelessWidget {
         title: Text(
           "Spor Salonu Ugulaması",
         ),
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Color.fromARGB(255, 231, 31, 31),
       ),
       bottomNavigationBar: BottomNavigationBar(
         selectedFontSize: 12,

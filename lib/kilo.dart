@@ -47,9 +47,12 @@ class _KiloState extends State<Kilo> {
           if (_formKey.currentState!.validate()) {
             int sayi = Hive.box("Kilo").length + 1;
             setState(() {
+              var gun = DateTime.now().day;
+              var ay = DateTime.now().month;
+              var yil = DateTime.now().year;
               if (_textFieldController.text != "") {
-                Hive.box("Kilo")
-                    .put("Kilo$sayi", int.parse(_textFieldController.text));
+                Hive.box("Kilo").put("$gun.$ay.$yil tarihli $sayi. Ölçüm",
+                    int.parse(_textFieldController.text));
                 _textFieldController.clear();
               }
             });
@@ -61,7 +64,7 @@ class _KiloState extends State<Kilo> {
       appBar: AppBar(
         title: Text("KİLO TAKİBİ"),
         centerTitle: true,
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Color.fromARGB(255, 231, 31, 31),
       ),
       body: Column(
         children: [
@@ -100,32 +103,30 @@ class _KiloState extends State<Kilo> {
   }
 
   Widget _buildListOrLoading() {
-  return FutureBuilder(
-    future: _checkAndOpenBox(),
-    builder: (context, snapshot) {
-      if (snapshot.connectionState == ConnectionState.waiting) {
-        return Center(child: CircularProgressIndicator());
-      } else {
-        return ListView.builder(
-          itemCount: Hive.box("Kilo").length,
-          itemBuilder: (context, index) {
-            var key = Hive.box("Kilo").keyAt(index);
-            var value = Hive.box("Kilo").get(key);
-            return ListTile(
-              title: Text('$key: $value'),
-            );
-          },
-        );
-      }
-    },
-  );
-}
-
-Future<void> _checkAndOpenBox() async {
-  if (!Hive.isBoxOpen("Kilo")) {
-    await Hive.openBox("Kilo");
+    return FutureBuilder(
+      future: _checkAndOpenBox(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Center(child: CircularProgressIndicator());
+        } else {
+          return ListView.builder(
+            itemCount: Hive.box("Kilo").length,
+            itemBuilder: (context, index) {
+              var key = Hive.box("Kilo").keyAt(index);
+              var value = Hive.box("Kilo").get(key);
+              return ListTile(
+                title: Text('$key: $value'),
+              );
+            },
+          );
+        }
+      },
+    );
   }
- 
-}
 
+  Future<void> _checkAndOpenBox() async {
+    if (!Hive.isBoxOpen("Kilo")) {
+      await Hive.openBox("Kilo");
+    }
+  }
 }

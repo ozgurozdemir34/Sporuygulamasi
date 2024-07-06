@@ -64,7 +64,7 @@ class _BelState extends State<Bel> {
       appBar: AppBar(
         title: Text("BEL"),
         centerTitle: true,
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Color.fromARGB(255, 231, 31, 31),
       ),
       body: Column(
         children: [
