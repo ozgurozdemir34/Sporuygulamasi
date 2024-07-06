@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:sporuygulamasi/abonelik.dart';
 import 'package:sporuygulamasi/boy.dart';
+import 'package:sporuygulamasi/hesaplamalar.dart';
 import 'package:sporuygulamasi/kilo.dart';
 import 'package:sporuygulamasi/olcumler.dart';
 import 'package:sporuygulamasi/salonhakkinda.dart';
@@ -49,7 +50,14 @@ class Anasayfa extends StatelessWidget {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => Yagkasorani()));
               },
-              title: Text("Yağ Kilo Oranı"),
+              title: Text("Yağ Kas Oranı"),
+            ),
+            ListTile(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Hesaplamalar()));
+              },
+              title: Text("Hesaplamalar"),
             )
           ],
         ),
