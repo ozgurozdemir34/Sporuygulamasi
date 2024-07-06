@@ -18,7 +18,7 @@ class Olcumler extends StatelessWidget {
         title: Text(
           "ÖLÇÜMLER",
         ),
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Color.fromARGB(255, 231, 31, 31),
       ),
       body: Column(
         children: [
