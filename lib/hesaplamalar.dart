@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:sporuygulamasi/bel.dart';
-import 'package:sporuygulamasi/gogus.dart';
+import 'package:sporuygulamasi/endeks.dart';
 import 'package:sporuygulamasi/gunlukkalori.dart';
-import 'package:sporuygulamasi/kalca.dart';
-import 'package:sporuygulamasi/kol.dart';
-import 'package:sporuygulamasi/omuz.dart';
+import 'package:sporuygulamasi/gunlukprotein.dart';
+
 
 class Hesaplamalar extends StatelessWidget {
   const Hesaplamalar({super.key});
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -38,9 +37,18 @@ class Hesaplamalar extends StatelessWidget {
           ElevatedButton(
               onPressed: () {
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Bel()));
+                    context, MaterialPageRoute(builder: (context) => Gunlukprotein()));
               },
               child: Text("Günlük Protein İhtiyacı Hesaplama")),
+          SizedBox(
+            height: 50,
+          ),
+           ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Endeks()));
+              },
+              child: Text("Vücut Kitle Endeksi Hesaplama")),
           SizedBox(
             height: 50,
           ),
