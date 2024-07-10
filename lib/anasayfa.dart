@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:sporuygulamasi/abonelik.dart';
 import 'package:sporuygulamasi/boy.dart';
 import 'package:sporuygulamasi/hesaplamalar.dart';
+import 'package:sporuygulamasi/kaloritakibi.dart';
 import 'package:sporuygulamasi/kilo.dart';
 import 'package:sporuygulamasi/olcumler.dart';
 import 'package:sporuygulamasi/salonhakkinda.dart';
@@ -57,7 +58,22 @@ class Anasayfa extends StatelessWidget {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => Hesaplamalar()));
               },
+              
               title: Text("Hesaplamalar"),
+            ),
+            ListTile(
+              onTap: (){
+                Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Suicme()));
+              },
+              title: Text("Su Takibi"),
+            ),
+            ListTile(
+              onTap: (){
+                Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Kaloritakibi()));
+              },
+              title: Text("Kalori Takibi"),
             )
           ],
         ),
@@ -122,16 +138,7 @@ class Anasayfa extends StatelessWidget {
         SizedBox(
           height: 50,
         ),
-        ElevatedButton.icon(
-            onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Suicme()));
-            },
-            icon: Icon(Icons.water_drop_rounded),
-            label: Text("Su İçme")),
-        SizedBox(
-          height: 50,
-        ),
+       
         ElevatedButton.icon(
             icon: Icon(Icons.leaderboard),
             onPressed: () {},
