@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter/widgets.dart';
 import 'package:sporuygulamasi/abonelik.dart';
+import 'package:sporuygulamasi/adimsayar.dart';
 import 'package:sporuygulamasi/boy.dart';
 import 'package:sporuygulamasi/hesaplamalar.dart';
 import 'package:sporuygulamasi/kaloritakibi.dart';
@@ -156,7 +157,13 @@ class Anasayfa extends StatelessWidget {
         ElevatedButton.icon(
             onPressed: () {},
             icon: Icon(Icons.group),
-            label: Text("Grup Dersleri"))
+            label: Text("Grup Dersleri")),
+            SizedBox(
+              height: 50,
+            ),
+          ElevatedButton.icon(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>Adimsayar()));
+          }, label: Text("Adım Sayar"),icon: Icon(Icons.directions_walk),)
       ]),
     );
   }
